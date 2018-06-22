@@ -6,25 +6,30 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Title-->
         <scene sceneID="zd9-bN-Exy">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hM2-2U-onl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="j3n-j1-H3Y" customClass="MealsTableViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aoo-kL-kda">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Meals Cell" id="0DM-Cy-5Oq">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Days Cell" id="0DM-Cy-5Oq">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0DM-Cy-5Oq" id="bda-jE-4Lk">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="yE5-Zt-Ebq" kind="show" identifier="toEatView" id="rtD-sj-kxB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -32,15 +37,143 @@
                             <outlet property="delegate" destination="j3n-j1-H3Y" id="qfN-3d-cWx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="LoD-xa-FlV"/>
+                    <navigationItem key="navigationItem" title="Title" id="HDU-32-x42">
+                        <barButtonItem key="rightBarButtonItem" title="info" id="DdX-Ok-bA4">
+                            <connections>
+                                <segue destination="n91-fj-Rsf" kind="show" identifier="toAnalysisView" id="IXM-4B-mXN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hM2-2U-onl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="632" y="209"/>
+        </scene>
+        <!--info-->
+        <scene sceneID="Eao-EV-oOp">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tSo-Dv-It4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="n91-fj-Rsf" customClass="TextViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2TQ-Km-eL5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2K7-9z-POC">
+                                <rect key="frame" x="32" y="359" width="327" height="218"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text"> 탄수화물 위주의 식단은 사람을 지치게 하고 또 위가 안좋으신 분들에게 더욱더 안좋은 영향을 미칩니다. 단백질, 지방위주의 식단 흔히 "고기다이어트","키토 다이어트","카니보어다이어트"라고도 불리는 식단을 하게 되면 피로함이 없어지고 우울증, 여드름,알러지,관절염, 역류성식도염 등 다양한 병들의 증상에서 벗어났다는 증언들이 많습니다.  이 앱과 함께 키토 다이어트에 성공하고 더 건강하십쇼!!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VvT-Uy-7mm">
+                                <rect key="frame" x="32" y="185" width="319" height="172"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">안녕하세요!  "단백질 뭐먹었슈"에 오신걸 환영합니다.                                                                이 앱은 탄수화물을 위주로 섭취하는 현대인들에게 단백질 위주의 식단을 권장하기 위해 만들어졌습니다. 또, "키토다이어트","카니보어 다이어트", "키토 다이어트" 등 고기 위주의 식단을 시도해보고 싶으신분들이 다이어트에 도움이 될 수 있도록 이 앱을 제작하였습니다.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="itA-Md-7Sa"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="info" id="C5Q-lP-fx7"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="621.60000000000002" y="973.76311844077964"/>
+        </scene>
+        <!--Eat Table View Controller-->
+        <scene sceneID="zsH-4Y-HsE">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D69-3s-Dmb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="yE5-Zt-Ebq" customClass="EatTableViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UaC-Tk-0M4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Meals Cell" id="X9p-un-8Q3">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X9p-un-8Q3" id="WTA-mf-7jl">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="nBI-Fq-G0o" kind="show" identifier="toSpecificView" id="Taw-b7-ZSh"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yE5-Zt-Ebq" id="mhP-Wg-kfu"/>
+                            <outlet property="delegate" destination="yE5-Zt-Ebq" id="8an-K7-3Bz"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1255" y="212"/>
+        </scene>
+        <!--Specific View Controller-->
+        <scene sceneID="iQ2-PG-pIy">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H8L-3y-edZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="nBI-Fq-G0o" customClass="SpecificViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b2C-nj-dmc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="고기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSP-dk-POl">
+                                <rect key="frame" x="77" y="289" width="47" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TNr-Wn-BrS">
+                                <rect key="frame" x="0.0" y="331" width="375" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="nBI-Fq-G0o" id="dYQ-dA-RJV"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPi-4A-rQX">
+                                <rect key="frame" x="108" y="201" width="159" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="선택 후 이 버튼을 누르시오"/>
+                                <connections>
+                                    <action selector="DoneButton" destination="nBI-Fq-G0o" eventType="touchUpInside" id="JH3-g6-tHh"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivF-6n-XR9">
+                                <rect key="frame" x="0.0" y="101" width="375" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="야채" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gut-Dh-erl">
+                                <rect key="frame" x="260" y="285" width="47" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Lu5-qy-xaI"/>
+                    </view>
+                    <connections>
+                        <outlet property="FoodPicker" destination="TNr-Wn-BrS" id="BAJ-j4-T8f"/>
+                        <outlet property="outcomeLabel" destination="ivF-6n-XR9" id="GUI-Sh-Ilm"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1920.8" y="206.44677661169416"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BMu-dj-CG2">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mRz-rK-3kb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="gQF-6i-hKk" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oGM-od-RRZ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -50,7 +183,6 @@
                         <segue destination="j3n-j1-H3Y" kind="relationship" relationship="rootViewController" id="XI8-25-mG2"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mRz-rK-3kb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-318" y="209"/>
         </scene>

@@ -13,6 +13,9 @@
 		CD004FBE20D8EB3C00710D73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD004FBD20D8EB3C00710D73 /* Assets.xcassets */; };
 		CD004FC120D8EB3C00710D73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD004FBF20D8EB3C00710D73 /* LaunchScreen.storyboard */; };
 		CD004FC920D8EBEC00710D73 /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD004FC820D8EBEC00710D73 /* MealsTableViewController.swift */; };
+		CD004FCB20D8FA8100710D73 /* EatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD004FCA20D8FA8100710D73 /* EatTableViewController.swift */; };
+		CD004FCF20D904F300710D73 /* SpecificViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD004FCE20D904F300710D73 /* SpecificViewController.swift */; };
+		CDDF76E720DCD0BD0031188B /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDF76E620DCD0BD0031188B /* TextViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		CD004FC020D8EB3C00710D73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD004FC220D8EB3C00710D73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD004FC820D8EBEC00710D73 /* MealsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
+		CD004FCA20D8FA8100710D73 /* EatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatTableViewController.swift; sourceTree = "<group>"; };
+		CD004FCE20D904F300710D73 /* SpecificViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificViewController.swift; sourceTree = "<group>"; };
+		CDDF76E620DCD0BD0031188B /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,9 @@
 				CD004FB620D8EB3C00710D73 /* AppDelegate.swift */,
 				CD004FB820D8EB3C00710D73 /* ViewController.swift */,
 				CD004FC820D8EBEC00710D73 /* MealsTableViewController.swift */,
+				CD004FCA20D8FA8100710D73 /* EatTableViewController.swift */,
+				CD004FCE20D904F300710D73 /* SpecificViewController.swift */,
+				CDDF76E620DCD0BD0031188B /* TextViewController.swift */,
 				CD004FBA20D8EB3C00710D73 /* Main.storyboard */,
 				CD004FBD20D8EB3C00710D73 /* Assets.xcassets */,
 				CD004FBF20D8EB3C00710D73 /* LaunchScreen.storyboard */,
@@ -139,9 +148,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD004FCB20D8FA8100710D73 /* EatTableViewController.swift in Sources */,
+				CD004FCF20D904F300710D73 /* SpecificViewController.swift in Sources */,
 				CD004FB920D8EB3C00710D73 /* ViewController.swift in Sources */,
 				CD004FB720D8EB3C00710D73 /* AppDelegate.swift in Sources */,
 				CD004FC920D8EBEC00710D73 /* MealsTableViewController.swift in Sources */,
+				CDDF76E720DCD0BD0031188B /* TextViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

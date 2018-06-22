@@ -1,5 +1,5 @@
 //
-//  MealsTableViewController.swift
+//  SpecificTableViewController.swift
 //  FinalProject
 //
 //  Created by SWUCOMPUTER on 2018. 6. 19..
@@ -8,14 +8,43 @@
 
 import UIKit
 
-class MealsTableViewController: UITableViewController {
-    var days:[String: [String]] =
-        ["월요일": ["아침", "점심", "저녁",],"화요일": ["아침", "점심", "저녁" ],"수요일": ["아침", "점심", "저녁" ],"목요일": ["아침", "점심", "저녁" ],"금요일": ["아침", "점심", "저녁" ],"토요일": ["아침", "점심", "저녁" ],"일요일": ["아침", "점심", "저녁" ]]
+class SpecificTableViewController: UITableViewController,UIPickerViewDelegate, UIPickerViewDataSource  {
+    let MeatArray: Array<String> = ["닭가슴살", "소고기", "터키", "오리고기","연어"]
+    let VegeArray: [String] = ["양배추", "오이", "브로콜리",
+                               "상추", "감자"]
+
+    
+
+    @IBOutlet var vegeLabel: UILabel!
+    @IBOutlet var meatLabel: UILabel!
+    @IBOutlet var outcomeLabel: UILabel!
+    @IBOutlet var FoodPicker: UIPickerView!
+    @IBAction func DoneButton() {
+        let meat: String = MeatArray[self.FoodPicker.selectedRow(inComponent: 0)]
+        let vege: String = VegeArray[self.FoodPicker.selectedRow(inComponent: 1)]
+        outcomeLabel.text = meat + ", " + vege
+    }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if component == 0 {
+            return MeatArray.count }
+        else {
+            return VegeArray.count }
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if component == 0 {
+            return MeatArray[row] }
+        else {
+            return VegeArray[row] }
+    }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "단백질먹었슈?"
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -30,26 +59,16 @@ class MealsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return days.count
-    }
-
-   
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Days Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        var meals = Array(days.keys)
-        cell.textLabel?.text = meals[indexPath.row]
+        // Configure the cell...
 
         return cell
     }
-   
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -86,13 +105,14 @@ class MealsTableViewController: UITableViewController {
     }
     */
 
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? EatTableViewController {
-            if let selectedIndex = self.tableView.indexPathsForSelectedRows?.first?.row {
-                destination.title = Array(days.keys) [selectedIndex]
-                destination.EatList = Array(days.values) [selectedIndex] }
-        } }
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }

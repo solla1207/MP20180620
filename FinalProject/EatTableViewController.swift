@@ -1,5 +1,5 @@
 //
-//  MealsTableViewController.swift
+//  EatTableViewController.swift
 //  FinalProject
 //
 //  Created by SWUCOMPUTER on 2018. 6. 19..
@@ -8,14 +8,12 @@
 
 import UIKit
 
-class MealsTableViewController: UITableViewController {
-    var days:[String: [String]] =
-        ["월요일": ["아침", "점심", "저녁",],"화요일": ["아침", "점심", "저녁" ],"수요일": ["아침", "점심", "저녁" ],"목요일": ["아침", "점심", "저녁" ],"금요일": ["아침", "점심", "저녁" ],"토요일": ["아침", "점심", "저녁" ],"일요일": ["아침", "점심", "저녁" ]]
-    
+class EatTableViewController: UITableViewController {
+    var EatList: [String]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "단백질먹었슈?"
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -37,19 +35,19 @@ class MealsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return days.count
+        return EatList.count
+        
     }
 
-   
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Days Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Meals Cell", for: indexPath)
 
-        var meals = Array(days.keys)
-        cell.textLabel?.text = meals[indexPath.row]
-
+        cell.textLabel?.text = EatList[indexPath.row]
+       
         return cell
     }
-   
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -86,13 +84,10 @@ class MealsTableViewController: UITableViewController {
     }
     */
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? EatTableViewController {
-            if let selectedIndex = self.tableView.indexPathsForSelectedRows?.first?.row {
-                destination.title = Array(days.keys) [selectedIndex]
-                destination.EatList = Array(days.values) [selectedIndex] }
-        } }
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+ 
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
 
 }
